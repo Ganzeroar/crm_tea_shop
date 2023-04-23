@@ -21,6 +21,7 @@ INSTALLED_APPS = [
 # FRAMEWORKS
 INSTALLED_APPS += [
     'rest_framework',
+    'phonenumber_field',
 ]
 
 # APPS
