@@ -10,6 +10,7 @@ class SpecificOrdersSerializer(serializers.ModelSerializer):
 
 
 class OrdersSerializer(serializers.ModelSerializer):
+    # deprecated
     client = ClientsSerializer()
     order = SpecificOrdersSerializer()
 
