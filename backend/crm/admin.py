@@ -1,5 +1,5 @@
 from django.contrib import admin
-from crm.models import Orders, OrderStatus, Clients, Products, ProductType, ProductUnit
+from crm.models import Orders, OrderStatus, Clients, Products, ProductType, ProductUnit, City
 
 
 @admin.register(Orders)
@@ -21,3 +21,5 @@ admin.site.register(OrderStatus)
 admin.site.register(ProductType)
 
 admin.site.register(ProductUnit)
+
+admin.site.register(City)
