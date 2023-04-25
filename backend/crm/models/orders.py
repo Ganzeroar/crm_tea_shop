@@ -10,8 +10,8 @@ class ProductOrder(models.Model):
     quantity = models.PositiveIntegerField(verbose_name='Количество')
 
     class Meta:
-        verbose_name = 'Заказ'
-        verbose_name_plural = 'Заказы'
+        verbose_name = 'Один заказ'
+        verbose_name_plural = 'Конкретные заказы'
     
     def __str__(self):
         return f'{self.product} {self.quantity}'

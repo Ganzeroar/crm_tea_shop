@@ -9,7 +9,7 @@ from crm.models import (City, Clients, Orders, OrderStatus, Products,
 @admin.register(Orders)
 class OrderAdmin(admin.ModelAdmin):
 
-    readonly_fields = ['id', 'client_name_surname', 'client_city', 'date_of_creation', 'total_cost']
+    readonly_fields = ['id', 'client_name_surname', 'client_city', 'date_of_creation', 'total_cost', 'product']
     
     list_display = ['date_of_creation', 'client_name_surname', 'client_phone', 'order_number', 'status']
 
@@ -44,7 +44,7 @@ class ClientsAdmin(admin.ModelAdmin):
 class ProductsAdmin(admin.ModelAdmin):
     list_display = ['name', 'description', 'price', 'quantity', 'unit', 'product_type']
 
-admin.site.register(ProductOrder)
+# admin.site.register(ProductOrder)
 
 admin.site.register(OrderStatus)
 

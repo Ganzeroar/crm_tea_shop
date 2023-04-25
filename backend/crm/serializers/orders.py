@@ -5,15 +5,16 @@ from .clients import ClientsSerializer
 class SpecificOrdersSerializer(serializers.ModelSerializer):
     class Meta:
         model = Orders
-        fields = ['id', 'product', 'client']
+        fields = ['id', 'product', 'client', 'destination_address']
 
     def create(self, validated_data):
         status = OrderStatus.objects.get(name='В работе')
         # validated_data['status'] = status
         print(validated_data)
         product = validated_data['product']
+        destination_address = validated_data['destination_address']
         # products = ProductOrder.filter()
-        obj = Orders.objects.create(client=validated_data['client'], status=status)
+        obj = Orders.objects.create(client=validated_data['client'], status=status, destination_address=destination_address)
         obj.product.set(product)
         return obj
 
