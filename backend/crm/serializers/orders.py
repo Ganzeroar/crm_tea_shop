@@ -5,7 +5,7 @@ from .clients import ClientsSerializer
 class SpecificOrdersSerializer(serializers.ModelSerializer):
     class Meta:
         model = Orders
-        fields = ['quantity', 'product', 'client']
+        fields = ['id', 'quantity', 'product', 'client']
 
     def create(self, validated_data):
         status = OrderStatus.objects.get(name='В работе')

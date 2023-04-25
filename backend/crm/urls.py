@@ -11,6 +11,6 @@ urlpatterns = [
     path('product_type/<int:pk>', ProductType.as_view()),
     path('orders', Orders.as_view()),
     path('orders/<int:pk>', OneOrder.as_view()),
-    path('clients', Clients.as_view()),
+    path('clients', Clients.as_view(), name='clients'),
     path('cities', Cities.as_view()),
 ]
