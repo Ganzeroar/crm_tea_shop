@@ -1,6 +1,6 @@
 from rest_framework.generics import CreateAPIView, RetrieveAPIView, ListAPIView
 from crm.models import Orders as Orders_model, ProductOrder
-from crm.serializers.orders import SpecificOrdersSerializer, ProductOrderSerializer
+from crm.serializers.orders import SpecificOrdersSerializer, ProductOrderSerializer, SpecificStatusOrdersSerializer
 from rest_framework import status
 from rest_framework.response import Response
 
@@ -19,7 +19,7 @@ class Orders(CreateAPIView, ListAPIView):
 
 class OneOrder(RetrieveAPIView):
     queryset = Orders_model.objects.all()
-    serializer_class = SpecificOrdersSerializer
+    serializer_class = SpecificStatusOrdersSerializer
 
 class ProductOrderView(CreateAPIView):
     queryset = ProductOrder.objects.all()

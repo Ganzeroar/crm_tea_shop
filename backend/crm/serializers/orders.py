@@ -17,6 +17,11 @@ class SpecificOrdersSerializer(serializers.ModelSerializer):
         obj.product.set(product)
         return obj
 
+class SpecificStatusOrdersSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Orders
+        fields = ['id', 'status', 'product', 'client']
+
 
 class OrdersSerializer(serializers.ModelSerializer):
     # deprecated
