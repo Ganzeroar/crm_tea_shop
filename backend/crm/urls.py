@@ -5,6 +5,8 @@ from crm.api.product_type import ProductType
 from crm.api.clients import Clients
 from crm.api.city import Cities
 from crm.api.order_statuses import OrderStatusesView
+from crm.api.unit import UnitView
+
 
 urlpatterns = [
     path('products', OneProduct.as_view()),
@@ -16,4 +18,5 @@ urlpatterns = [
     path('clients', Clients.as_view(), name='clients'),
     path('cities', Cities.as_view()),
     path('order_statuses/<int:pk>', OrderStatusesView.as_view()),
+    path('unit/<int:pk>', UnitView.as_view()),
 ]
