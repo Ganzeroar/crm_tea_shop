@@ -1,0 +1,16 @@
+[
+    {
+        "model": "crm.city",
+        "pk": 1,
+        "fields": {
+            "name": "Алматы"
+        }
+    },
+    {
+        "model": "crm.city",
+        "pk": 2,
+        "fields": {
+            "name": "Астана"
+        }
+    }
+]

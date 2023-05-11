@@ -1,0 +1,23 @@
+[
+    {
+        "model": "crm.producttype",
+        "pk": 1,
+        "fields": {
+            "name": "Чай"
+        }
+    },
+    {
+        "model": "crm.producttype",
+        "pk": 2,
+        "fields": {
+            "name": "Кофе"
+        }
+    },
+    {
+        "model": "crm.producttype",
+        "pk": 3,
+        "fields": {
+            "name": "Посуда"
+        }
+    }
+]

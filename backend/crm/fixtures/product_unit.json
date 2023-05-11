@@ -1,0 +1,16 @@
+[
+    {
+        "model": "crm.productunit",
+        "pk": 1,
+        "fields": {
+            "unit": "Шт."
+        }
+    },
+    {
+        "model": "crm.productunit",
+        "pk": 2,
+        "fields": {
+            "unit": "Гр."
+        }
+    }
+]

@@ -1,0 +1,16 @@
+[
+    {
+        "model": "crm.orderstatus",
+        "pk": 1,
+        "fields": {
+            "name": "В работе"
+        }
+    },
+    {
+        "model": "crm.orderstatus",
+        "pk": 2,
+        "fields": {
+            "name": "Передан курьеру"
+        }
+    }
+]
