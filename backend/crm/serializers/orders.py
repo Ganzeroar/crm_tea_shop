@@ -2,6 +2,7 @@ from crm.models import Orders, OrderStatus, ProductOrder
 from rest_framework import serializers
 from .clients import ClientsSerializer
 
+
 class SpecificOrdersSerializer(serializers.ModelSerializer):
     class Meta:
         model = Orders
@@ -9,11 +10,10 @@ class SpecificOrdersSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         status = OrderStatus.objects.get(name='В работе')
-        # validated_data['status'] = status
-        print(validated_data)
+
         product = validated_data['product']
         destination_address = validated_data['destination_address']
-        # products = ProductOrder.filter()
+
         obj = Orders.objects.create(client=validated_data['client'], status=status, destination_address=destination_address)
         obj.product.set(product)
         return obj
