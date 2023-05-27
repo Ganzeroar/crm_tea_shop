@@ -9,11 +9,10 @@ from crm.models import (City, Clients, Orders, OrderStatus, Products,
 @admin.register(Orders)
 class OrderAdmin(admin.ModelAdmin):
 
-    readonly_fields = ['id', 'client_name_surname', 'client_city', 'date_of_creation', 'total_cost', 'product']
+    readonly_fields = ['id', 'client_name_surname', 'client_city', 'date_of_creation', 'total_cost']
     
     list_display = ['date_of_creation', 'client_name_surname', 'client_phone', 'order_number', 'status']
 
-    # fields = ['id', 'client', 'client_phone', 'status', 'client_city', 'destination_address', 'product', 'total_cost']
     fields = ['client', 'status', 'destination_address', 'product']
 
     def client_name_surname(self, obj):
@@ -36,9 +35,20 @@ class OrderAdmin(admin.ModelAdmin):
         return obj.product.price * obj.quantity
     total_cost.short_description = 'Сумма заказа'
 
+    def get_object(self, request, object_id, s):
+        self.obj = super(OrderAdmin, self).get_object(request, object_id)
+        return self.obj
+
+    def formfield_for_manytomany(self, db_field, request, **kwargs):
+        if db_field.name == "product":
+            kwargs["queryset"] = ProductOrder.objects.filter(orders=self.obj)
+        return super().formfield_for_manytomany(db_field, request, **kwargs)
+
+
 @admin.register(Clients)
 class ClientsAdmin(admin.ModelAdmin):
     list_display = ['name', 'surname','phone', 'city']
+
 
 @admin.register(Products)
 class ProductsAdmin(admin.ModelAdmin):

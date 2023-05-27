@@ -7,7 +7,7 @@ SECRET_KEY = variables.DJANGO_SECRET_KEY
 
 DEBUG = variables.DEBUG
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
