@@ -6,7 +6,7 @@ from crm.api.clients import Clients
 from crm.api.city import Cities
 from crm.api.order_statuses import OrderStatusesView
 from crm.api.unit import UnitView
-
+from crm.api.phone_validator import PhoneValidator
 
 urlpatterns = [
     path('products', OneProduct.as_view()),
@@ -21,4 +21,5 @@ urlpatterns = [
     path('clients', Clients.as_view(), name='clients'),
     path('cities', Cities.as_view()),
     path('unit/<int:pk>', UnitView.as_view()),
+    path('phone/<str:phone>', PhoneValidator.as_view()),
 ]

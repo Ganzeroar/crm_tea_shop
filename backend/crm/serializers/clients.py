@@ -6,3 +6,9 @@ class ClientsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Clients
         fields = '__all__'
+
+
+class ClientPhoneSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Clients
+        fields = ['phone']
