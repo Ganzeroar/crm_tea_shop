@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import reverse
 from django.template.defaultfilters import escape
-
+import requests
 from crm.models import (City, Clients, Orders, OrderStatus, Products,
                         ProductType, ProductUnit, ProductOrder)
 
@@ -44,6 +44,17 @@ class OrderAdmin(admin.ModelAdmin):
             kwargs["queryset"] = ProductOrder.objects.filter(orders=self.obj)
         return super().formfield_for_manytomany(db_field, request, **kwargs)
 
+    def save_model(self, request, obj, form, change):
+        print(123)
+        print(obj.status)
+        print(obj.client.telegram_user_id)
+        print(request.body)
+        url = 'http://127.0.0.1:8080/status_was_updated'
+        data = {'status': str(obj.status), 'telegram_user_id': str(obj.client.telegram_user_id)}
+        responce = requests.post(url=url, json=data)
+        print(responce)
+        print(responce.text)
+        super().save_model(request, obj, form, change)
 
 @admin.register(Clients)
 class ClientsAdmin(admin.ModelAdmin):

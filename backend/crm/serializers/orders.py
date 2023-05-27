@@ -1,8 +1,7 @@
-from crm.models import Orders, OrderStatus, ProductOrder
+from crm.models import Orders, OrderStatus, ProductOrder, Products
 from rest_framework import serializers
 from .clients import ClientsSerializer
 from .products import ProductsSerializer, SpecificProductsSerializer
-
 
 class ProductOrderSerializer(serializers.ModelSerializer):
     class Meta:
@@ -24,11 +23,19 @@ class SpecificOrdersSerializer(serializers.ModelSerializer):
         destination_address = validated_data['destination_address']
 
         obj = Orders.objects.create(client=validated_data['client'], status=status, destination_address=destination_address)
-        for product_r in products:
-            product_order = ProductOrder.objects.create(**product_r)
+        for product_order_info in products:
+            product_order = ProductOrder.objects.create(**product_order_info)
             obj.product.add(product_order)
-        return obj
 
+            print(product_order_info)
+            product_obj = product_order_info.get('product')
+            order_quantity = product_order_info.get('quantity')
+            product_obj.quantity = product_obj.quantity - order_quantity
+            product_obj.save()
+            print(product_obj)
+            print(product_obj.quantity)
+        return obj
+    
 
 class SpecificStatusOrdersSerializer(serializers.ModelSerializer):
     class Meta:

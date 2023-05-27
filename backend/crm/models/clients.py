@@ -8,6 +8,7 @@ class Clients(models.Model):
     phone = PhoneNumberField(max_length=15, verbose_name='Телефон')
     name = models.CharField(max_length=100, verbose_name='Имя')
     surname = models.CharField(max_length=100, verbose_name='Фамилия')
+    telegram_user_id = models.CharField(max_length=20, verbose_name='Телеграм user_id')
 
     class Meta:
         verbose_name = 'Клиент'
