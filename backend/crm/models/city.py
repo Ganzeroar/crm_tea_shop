@@ -9,4 +9,4 @@ class City(models.Model):
         verbose_name_plural = 'Города'
 
     def __str__(self):
-        return self.name   
+        return self.name

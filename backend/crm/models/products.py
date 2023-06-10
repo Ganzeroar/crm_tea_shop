@@ -2,6 +2,7 @@ from django.db import models
 from .product_type import ProductType
 from .unit import ProductUnit
 
+
 class Products(models.Model):
     name = models.CharField(max_length=50, verbose_name='Название')
     description = models.CharField(max_length=200, verbose_name='Описание')

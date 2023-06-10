@@ -1,6 +1,6 @@
 from rest_framework.generics import CreateAPIView
 from crm.models import Clients
-from crm.serializers.orders import ClientsSerializer
+from crm.serializers.clients import ClientsSerializer
 
 
 class Clients(CreateAPIView):

@@ -7,7 +7,7 @@ from rest_framework import status
 class PhoneValidator(APIView):
 
     def get(self, request, *args, **kwargs):
-        phone = self.kwargs.get('phone') 
+        phone = self.kwargs.get('phone')
 
         phone_serializer = ClientPhoneSerializer(data={'phone': phone})
         if phone_serializer.is_valid():

@@ -7,3 +7,4 @@ from .orders import Orders, ProductOrder
 from .product_type import ProductType
 from .unit import ProductUnit
 from .order_statuses import OrderStatus
+from .notification_info import NotificationInfo
