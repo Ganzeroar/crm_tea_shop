@@ -12,9 +12,10 @@ class ProductOrder(models.Model):
     class Meta:
         verbose_name = 'Один заказ'
         verbose_name_plural = 'Конкретные заказы'
-    
+
     def __str__(self):
         return f'{self.product} {self.quantity}'
+
 
 class Orders(models.Model):
     id = models.AutoField(primary_key=True, verbose_name='Номер заказа')
@@ -27,7 +28,6 @@ class Orders(models.Model):
     class Meta:
         verbose_name = 'Заказ'
         verbose_name_plural = 'Заказы'
-    
+
     def __str__(self):
         return f'Заказ от {self.date_of_creation}'
-    
